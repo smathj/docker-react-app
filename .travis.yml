@@ -17,6 +17,20 @@ before_install:
 script:
   - docker run -e CI=true smathj/docker-react-app npm run test -- --coverage
 
+# Deploy
+deploy:
+  provider: elasticbeanstalk
+  region: 'ap-northeast-2'
+  app: 'docker-react-app'
+  env: 'Dockerreactapp-env'
+  bucket_name: 'elasticbeanstalk-ap-northeast-2-526310121710'
+  bucket_path: 'docker-react-app'
+  on: # 어느 브런치가 push될때마다 할것인지
+    branch: main
+
+# Travis에서 환경변수 access, secret key 가져오기
+access_key_id: $AWS_ACCESS_KEY
+secret_access_key: $AWS_SECRET_ACCESS_KEY
 # 테스트 성공 후 할일
-after_success:
-  - echo "Test Success"
+# after_success:
+#   - echo "Test Success"
