@@ -8,7 +8,7 @@ language: generic
 services:
   - docker
 
-# 스크립트를 실행할 수 있는 환경 구성( Dockerfile을 이용해서 이미지 생성 )
+# 스크립트를 실행할 수 있는 환경 구성( Dockerfile을 이용해서 이미지 생성  )
 before_install:
   - echo "start Creating an image iwth dockerfile"
   - docker build -t smathj/docker-react-app -f Dockerfile.dev .
