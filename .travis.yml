@@ -11,7 +11,7 @@ services:
 # 스크립트를 실행할 수 있는 환경 구성( Dockerfile을 이용해서 이미지 생성  )
 before_install:
   - echo "start Creating an image iwth dockerfile"
-  - docker build -p 80:80 -t smathj/docker-react-app .
+  - docker build -t smathj/docker-react-app .
   # - docker build -t smathj/docker-react-app -f Dockerfile.dev .
 
 # 실행할 스크립트(테스트 실행)
